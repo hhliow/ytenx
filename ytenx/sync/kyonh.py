@@ -367,6 +367,7 @@ def syncSieuxYonh():
       pyanx = pyanx,
       ngix = ngixQimMap[line[0]],
       preng = prengQimMap[line[0]],
+      baxter = line[7],
     )
     sieux.cio.clear()
     for cio in line[6].split('/'):
