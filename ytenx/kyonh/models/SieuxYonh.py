@@ -79,6 +79,8 @@ class SieuxYonh(models.Model):
   preng = models.OneToOneField('PrengQim')
   #書
   cio = models.ManyToManyField('Cio')
+  #Baxter transcription
+  baxter = models.CharField(max_length = 16, db_index=True)
   
   objects = SieuxYonhManager()
   
