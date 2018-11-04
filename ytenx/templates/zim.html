@@ -34,13 +34,13 @@
     {% for dzih in dzih_list.kyonh %}
       <h2>
         <span class="badge badge-info">{{forloop.counter}}</span>
-        <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
+        <a href="{% url 'kyonh.views.dzih' ziox=dzih.ziox vertical=vertical %}">{{dzih.dzih}}</a>
       </h2>
       <h3>
         {% if dzih.sieuxYonh.pyanx %}
           <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
         {% endif %}
-        <a href="{% url 'kyonh.views.sieux_yonh_page' dzih.sieuxYonh.ziox %}">{{dzih.sieuxYonh}}</a>小韻
+        <a href="{% url 'kyonh.views.sieux_yonh_page' zio=dzih.sieuxYonh.ziox vertical=vertical%}">{{dzih.sieuxYonh}}</a>小韻
       </h3>
       <p>
         {{dzih.sieuxYonh.yonh.gheh.cjep}}{{dzih.sieuxYonh.yonh.ho|ho}}{{dzih.sieuxYonh.yonh.tongx|sryoh}}{{dzih.sieuxYonh.yonhMiuk.deuh|deuh}}<a href="{% url 'kyonh.views.yonh_miuk_page' dzih.sieuxYonh.yonhMiuk.dzih %}">{{dzih.sieuxYonh.yonhMiuk}}</a><a href="{% url 'kyonh.views.cjeng_mux_page' dzih.sieuxYonh.cjeng.dzih %}">{{dzih.sieuxYonh.cjeng}}</a>
