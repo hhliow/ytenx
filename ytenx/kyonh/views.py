@@ -7,11 +7,15 @@ from ytenx.helpers.paginator import Paginator
 from django.core.paginator import InvalidPage, EmptyPage
 from models import SieuxYonh, CjengMux, YonhMux, YonhMiukDzip, CjengLyih, DrakDzuonDang, YonhMiuk, DciangxDzih, GhraxDzih, Dzih, YonhCjep, YonhGheh
 
-def index_page(request):
-  return render_to_response('kyonh/index.html')
+def index_page(request, vertical):
+  return render_to_response('kyonh/index.html', {
+    'vertical': vertical,
+  })
 
-def intro_page(request):
-  return render_to_response('kyonh/intro.html')
+def intro_page(request, vertical):
+  return render_to_response('kyonh/intro.html', {
+    'vertical': vertical,
+  })
 
 def sieux_yonh_page(request, ziox):
   try:
