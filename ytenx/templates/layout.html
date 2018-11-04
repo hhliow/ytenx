@@ -23,11 +23,26 @@
         padding: 9px 0;
       }
       {% if vertical == 1 %}
-        nav {
-          float: right;
-        }
-        .li  {
-          float: right;
+        .navbar {
+            .navbar-header {float: right;
+                a.logo { float: right !important;}
+            }
+            .navbar-collapse{
+                nav {
+
+                    ul.menu.navbar-nav {float: right;
+                        li {
+                            float: right;
+                        }
+                    }
+                    ul.menu.navbar-nav.secondary {float: left !important;
+                        li {
+                            float: right;
+                        }
+                    }
+
+                }
+            }
         }
       {% endif %}
     </style>
