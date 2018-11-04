@@ -81,6 +81,7 @@ def sieux_yonh_list_page(request, vertical=0):
     'p_deuh': deuh,
     'p_tongx': tongx,
     'p_ho': ho,
+    'vertical': vertical,
   })
 
 def dzih(request, ziox, vertical=0):
@@ -91,6 +92,7 @@ def dzih(request, ziox, vertical=0):
 
   return render_to_response('kyonh/dzih.html', {
     'dzih': dzih,
+    'vertical': vertical,
   })
 
 def dzih_pieux(request, vertical=0):
@@ -102,36 +104,42 @@ def dzih_pieux(request, vertical=0):
     raise Http404()
   return render_to_response('kyonh/dzih_pieux.html', {
     'dzih_pieux': dzih_pieux,
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def cjeng_mux_list_page(request, vertical=0):
   return render_to_response('kyonh/cjeng_mux_list.html', {
     'cjeng_mux_list': CjengMux.objects.all(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def yonh_mux_list_page(request, vertical=0):
   return render_to_response('kyonh/yonh_mux_list.html', {
     'yonh_mux_list': YonhMux.objects.get_pairs(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def yonh_miuk_list_page(request, vertical=0):
   return render_to_response('kyonh/yonh_miuk_list.html', {
     'yonh_miuk_list': YonhMiukDzip.objects.all(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def cjeng_ngix_list_page(request, vertical=0):
   return render_to_response('kyonh/cjeng_ngix_list.html', {
     'cjeng_mux_list': CjengMux.objects.all(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def yonh_ngix_list_page(request, vertical=0):
   return render_to_response('kyonh/yonh_ngix_list.html', {
     'yonh_mux_list': YonhMux.objects.get_pairs(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
@@ -150,6 +158,7 @@ def yonh_do_page(request, vertical=0):
     'cjeng_lyih_list': CjengLyih.objects.all(),
     'dzip': dzip,
     'dzip_list': dzip_list,
+    'vertical': vertical,
   })
 
 def cio_page(request, kyenh, jep, vertical=0):
@@ -160,6 +169,7 @@ def cio_page(request, kyenh, jep, vertical=0):
   
   return render_to_response('kyonh/cio.html', {
     'cio': cio,
+    'vertical': vertical,
   })
 
 def cjeng_mux_page(request, dzih, vertical=0):
@@ -170,6 +180,7 @@ def cjeng_mux_page(request, dzih, vertical=0):
 
   return render_to_response('kyonh/cjeng_mux.html', {
     'cjeng': cjeng,
+    'vertical': vertical,
   })
 
 def yonh_mux_page(request, mjeng, vertical=0):
@@ -180,6 +191,7 @@ def yonh_mux_page(request, mjeng, vertical=0):
 
   return render_to_response('kyonh/yonh_mux.html', {
     'yonh': yonh,
+    'vertical': vertical,
   })
 
 def yonh_miuk_page(request, dzih, vertical=0):
@@ -190,6 +202,7 @@ def yonh_miuk_page(request, dzih, vertical=0):
 
   return render_to_response('kyonh/yonh_miuk.html', {
     'yonh_miuk': yonh_miuk,
+    'vertical': vertical,
   })
 
 def pyanx_dciangx_page(request, dzih, vertical=0):
@@ -200,6 +213,7 @@ def pyanx_dciangx_page(request, dzih, vertical=0):
 
   return render_to_response('kyonh/pyanx_dciangx.html', {
     'dciangx': dciangx,
+    'vertical': vertical,
   })
 
 def pyanx_ghrax_page(request, dzih, vertical=0):
@@ -210,4 +224,5 @@ def pyanx_ghrax_page(request, dzih, vertical=0):
 
   return render_to_response('kyonh/pyanx_ghrax.html', {
     'ghrax': ghrax,
+    'vertical': vertical,
   })
