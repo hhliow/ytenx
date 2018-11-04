@@ -7,13 +7,13 @@ from ytenx.helpers.paginator import Paginator
 from django.core.paginator import InvalidPage, EmptyPage
 from models import *
 
-def triung_ngyan_qim_yonh(request):
+def triung_ngyan_qim_yonh(request, vertical=0):
   return render_to_response('trngyan/triung_ngyan_qim_yonh.html', {
     'cjeng_mux_pieux': CjengLyih.objects.all(),
     'yonh_mux_pieux': YonhBox.objects.all(),
   })
 
-def sieux_yonh(request, ziox):
+def sieux_yonh(request, ziox, vertical=0):
   try:
     sieux_yonh = SieuxYonh.objects.get(ziox = ziox)
   except:
@@ -23,7 +23,7 @@ def sieux_yonh(request, ziox):
     'sieux_yonh': sieux_yonh,
   })
 
-def sieux_yonh_pieux(request):
+def sieux_yonh_pieux(request, vertical=0):
   cjeng = request.GET.get('cjeng')
   yonh = request.GET.get('yonh')
   ho = request.GET.get('ho')
@@ -64,7 +64,7 @@ def sieux_yonh_pieux(request):
     'yonh_pieux': yonh_pieux,
   })
 
-def dzih(request, id):
+def dzih(request, id, vertical=0):
   try:
     dzih = Dzih.objects.get(id=id)
   except:
@@ -86,13 +86,13 @@ def dzih_pieux(request):
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_mux_pieux(request):
+def cjeng_mux_pieux(request, vertical=0):
   return render_to_response('trngyan/cjeng_mux_pieux.html', {
     'cjeng_mux_pieux': CjengLyih.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_mux(request, dzih):
+def cjeng_mux(request, dzih, vertical=0):
   try:
     cjeng = CjengMux.objects.get(dzih = dzih)
   except:
@@ -103,13 +103,13 @@ def cjeng_mux(request, dzih):
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_mux_pieux(request):
+def yonh_mux_pieux(request, vertical=0):
   return render_to_response('trngyan/yonh_mux_pieux.html', {
     'yonh_mux_pieux': YonhBox.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_mux(request, mjeng):
+def yonh_mux(request, mjeng, vertical=0):
   try:
     yonh = YonhMux.objects.get(mjeng = mjeng)
   except:
@@ -119,7 +119,7 @@ def yonh_mux(request, mjeng):
     'yonh': yonh,
   })
 
-def cio(request, kyenh, jep):
+def cio(request, kyenh, jep, vertical=0):
   cio = Cio.objects.get(
     kyenh = kyenh,
     jep = jep,
