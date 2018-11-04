@@ -7,17 +7,17 @@ from ytenx.helpers.paginator import Paginator
 from django.core.paginator import InvalidPage, EmptyPage
 from models import SieuxYonh, CjengMux, YonhMux, YonhMiukDzip, CjengLyih, DrakDzuonDang, YonhMiuk, DciangxDzih, GhraxDzih, Dzih, YonhCjep, YonhGheh
 
-def index_page(request, vertical):
+def index_page(request, vertical=0):
   return render_to_response('kyonh/index.html', {
     'vertical': vertical,
   })
 
-def intro_page(request, vertical):
+def intro_page(request, vertical=0):
   return render_to_response('kyonh/intro.html', {
     'vertical': vertical,
   })
 
-def sieux_yonh_page(request, ziox):
+def sieux_yonh_page(request, ziox, vertical=0):
   try:
     sieux_yonh = SieuxYonh.objects.get(ziox=ziox)
   except:
@@ -25,9 +25,10 @@ def sieux_yonh_page(request, ziox):
 
   return render_to_response('kyonh/sieux_yonh.html', {
     'sieux_yonh': sieux_yonh,
+    'vertical': vertical,
   })
 
-def sieux_yonh_list_page(request):
+def sieux_yonh_list_page(request, vertical=0):
   cjeng = request.GET.get('cjeng')
   yonh = request.GET.get('yonh')
   deuh = request.GET.get('deuh')
@@ -82,7 +83,7 @@ def sieux_yonh_list_page(request):
     'p_ho': ho,
   })
 
-def dzih(request, ziox):
+def dzih(request, ziox, vertical=0):
   try:
     dzih = Dzih.objects.get(ziox=ziox)
   except:
@@ -92,7 +93,7 @@ def dzih(request, ziox):
     'dzih': dzih,
   })
 
-def dzih_pieux(request):
+def dzih_pieux(request, vertical=0):
   dzih_pieux = Dzih.objects.all()
   paginator = Paginator(dzih_pieux, 15)
   try:
@@ -104,37 +105,37 @@ def dzih_pieux(request):
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_mux_list_page(request):
+def cjeng_mux_list_page(request, vertical=0):
   return render_to_response('kyonh/cjeng_mux_list.html', {
     'cjeng_mux_list': CjengMux.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_mux_list_page(request):
+def yonh_mux_list_page(request, vertical=0):
   return render_to_response('kyonh/yonh_mux_list.html', {
     'yonh_mux_list': YonhMux.objects.get_pairs(),
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_miuk_list_page(request):
+def yonh_miuk_list_page(request, vertical=0):
   return render_to_response('kyonh/yonh_miuk_list.html', {
     'yonh_miuk_list': YonhMiukDzip.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_ngix_list_page(request):
+def cjeng_ngix_list_page(request, vertical=0):
   return render_to_response('kyonh/cjeng_ngix_list.html', {
     'cjeng_mux_list': CjengMux.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_ngix_list_page(request):
+def yonh_ngix_list_page(request, vertical=0):
   return render_to_response('kyonh/yonh_ngix_list.html', {
     'yonh_mux_list': YonhMux.objects.get_pairs(),
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_do_page(request):
+def yonh_do_page(request, vertical=0):
   paginator = Paginator(YonhMiukDzip.objects.all(), 1)
   try:
     dzip_list = paginator.page(request.GET)
@@ -151,7 +152,7 @@ def yonh_do_page(request):
     'dzip_list': dzip_list,
   })
 
-def cio_page(request, kyenh, jep):
+def cio_page(request, kyenh, jep, vertical=0):
   cio = DrakDzuonDang.objects.get(
     kyenh = kyenh,
     jep = jep,
@@ -161,7 +162,7 @@ def cio_page(request, kyenh, jep):
     'cio': cio,
   })
 
-def cjeng_mux_page(request, dzih):
+def cjeng_mux_page(request, dzih, vertical=0):
   try:
     cjeng = CjengMux.objects.get(dzih = dzih)
   except:
@@ -171,7 +172,7 @@ def cjeng_mux_page(request, dzih):
     'cjeng': cjeng,
   })
 
-def yonh_mux_page(request, mjeng):
+def yonh_mux_page(request, mjeng, vertical=0):
   try:
     yonh = YonhMux.objects.get(mjeng = mjeng)
   except:
@@ -181,7 +182,7 @@ def yonh_mux_page(request, mjeng):
     'yonh': yonh,
   })
 
-def yonh_miuk_page(request, dzih):
+def yonh_miuk_page(request, dzih, vertical=0):
   try:
     yonh_miuk = YonhMiuk.objects.get(dzih = dzih)
   except:
@@ -191,7 +192,7 @@ def yonh_miuk_page(request, dzih):
     'yonh_miuk': yonh_miuk,
   })
 
-def pyanx_dciangx_page(request, dzih):
+def pyanx_dciangx_page(request, dzih, vertical=0):
   try:
     dciangx = DciangxDzih.objects.get(dzih = dzih)
   except:
@@ -201,7 +202,7 @@ def pyanx_dciangx_page(request, dzih):
     'dciangx': dciangx,
   })
 
-def pyanx_ghrax_page(request, dzih):
+def pyanx_ghrax_page(request, dzih, vertical=0):
   try:
     ghrax = GhraxDzih.objects.get(dzih = dzih)
   except:
