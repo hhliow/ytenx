@@ -11,6 +11,7 @@ def triung_ngyan_qim_yonh(request, vertical=0):
   return render_to_response('trngyan/triung_ngyan_qim_yonh.html', {
     'cjeng_mux_pieux': CjengLyih.objects.all(),
     'yonh_mux_pieux': YonhBox.objects.all(),
+    'vertical': vertical,
   })
 
 def sieux_yonh(request, ziox, vertical=0):
@@ -21,6 +22,7 @@ def sieux_yonh(request, ziox, vertical=0):
 
   return render_to_response('trngyan/sieux_yonh.html', {
     'sieux_yonh': sieux_yonh,
+    'vertical': vertical,
   })
 
 def sieux_yonh_pieux(request, vertical=0):
@@ -62,6 +64,7 @@ def sieux_yonh_pieux(request, vertical=0):
     'sieux_yonh_pieux': sieux_yonh_pieux,
     'cjeng_pieux': cjeng_pieux,
     'yonh_pieux': yonh_pieux,
+    'vertical': vertical,
   })
 
 def dzih(request, id, vertical=0):
@@ -72,6 +75,7 @@ def dzih(request, id, vertical=0):
 
   return render_to_response('trngyan/dzih.html', {
     'dzih': dzih,
+    'vertical': vertical,
   })
 
 def dzih_pieux(request):
@@ -83,12 +87,14 @@ def dzih_pieux(request):
     raise Http404()
   return render_to_response('trngyan/dzih_pieux.html', {
     'dzih_pieux': dzih_pieux,
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def cjeng_mux_pieux(request, vertical=0):
   return render_to_response('trngyan/cjeng_mux_pieux.html', {
     'cjeng_mux_pieux': CjengLyih.objects.all(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
@@ -100,12 +106,14 @@ def cjeng_mux(request, dzih, vertical=0):
 
   return render_to_response('trngyan/cjeng_mux.html', {
     'cjeng': cjeng,
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
 def yonh_mux_pieux(request, vertical=0):
   return render_to_response('trngyan/yonh_mux_pieux.html', {
     'yonh_mux_pieux': YonhBox.objects.all(),
+    'vertical': vertical,
   })
 
 @cache_page(60 * 60 * 24)
@@ -117,6 +125,7 @@ def yonh_mux(request, mjeng, vertical=0):
 
   return render_to_response('trngyan/yonh_mux.html', {
     'yonh': yonh,
+    'vertical': vertical,
   })
 
 def cio(request, kyenh, jep, vertical=0):
@@ -127,4 +136,5 @@ def cio(request, kyenh, jep, vertical=0):
   
   return render_to_response('trngyan/cio.html', {
     'cio': cio,
+    'vertical': vertical,
   })
