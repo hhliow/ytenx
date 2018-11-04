@@ -7,10 +7,10 @@ from ytenx.helpers.paginator import Paginator
 from django.core.paginator import InvalidPage, EmptyPage
 from models import *
 
-def dciangx_kox(request):
+def dciangx_kox(request, vertical):
   return render_to_response('dciangxkox/dciangx_kox.html')
 
-def dzih(request, id):
+def dzih(request, id, vertical):
   try:
     dzih = Dzih.objects.get(id = id)
   except:
@@ -20,7 +20,7 @@ def dzih(request, id):
     'dzih': dzih,
   })
 
-def dzih_pieux(request):
+def dzih_pieux(request, vertical):
   yonh = request.GET.get('yonh')
   
   query = Q()
@@ -46,7 +46,7 @@ def dzih_pieux(request):
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_byo_pieux(request):
+def cjeng_byo_pieux(request, vertical):
   cjeng_pieux = CjengByo.objects.all()
   paginator = Paginator(cjeng_pieux, 15)
   try:
@@ -59,7 +59,7 @@ def cjeng_byo_pieux(request):
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_byo(request, mjeng):
+def cjeng_byo(request, mjeng, vertical):
   try:
     cjeng = CjengByo.objects.get(mjeng = mjeng)
   except:
@@ -70,13 +70,13 @@ def cjeng_byo(request, mjeng):
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_box_pieux(request):
+def yonh_box_pieux(request, vertical):
   return render_to_response('dciangxkox/yonh_box_pieux.html', {
     'yonh_pieux': YonhBox.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_box(request, mjeng):
+def yonh_box(request, mjeng, vertical):
   try:
     yonh = YonhBox.objects.get(mjeng = mjeng)
   except:
