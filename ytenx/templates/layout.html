@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>{% block caption %}{% block title %}{% endblock %} - 韻典網{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if vertical == 1 %}
+      <meta name="viewport" content="initial-scale=1.0">
+    {% else %}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    {% endif %}
     <meta name="description" content="">
     <meta name="author" content="BYVoid">
     <meta content="{% block keywords %}{% endblock %}廣韻, 切韻, 韻書, 分韻撮要, 平水韻, 中原音韻, 上古漢語, 上古音系, 古音, 方言" name="keywords" />
