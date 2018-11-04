@@ -5,7 +5,7 @@ from django.core.paginator import InvalidPage, EmptyPage
 from django.template.base import TemplateDoesNotExist
 from ytenx.helpers.paginator import Paginator
 
-def byoh_lyuk(request, name):
+def byoh_lyuk(request, name, vertical=0):
   if name == 'KienxPyan':
     return kienx_pyan()
 
