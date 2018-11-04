@@ -7,13 +7,13 @@ from ytenx.helpers.paginator import Paginator
 from django.core.paginator import InvalidPage, EmptyPage
 from models import *
 
-def pyon_yonh(request):
+def pyon_yonh(request, vertical):
   return render_to_response('pyonh/pyon_yonh.html', {
     'cjeng_mux_pieux': CjengLyih.objects.all(),
     'yonh_mux_pieux': YonhBox.objects.all(),
   })
 
-def sieux_yonh(request, ziox):
+def sieux_yonh(request, ziox, vertical):
   try:
     sieux_yonh = SieuxYonh.objects.get(ziox = ziox)
   except:
@@ -23,7 +23,7 @@ def sieux_yonh(request, ziox):
     'sieux_yonh': sieux_yonh,
   })
 
-def sieux_yonh_pieux(request):
+def sieux_yonh_pieux(request, vertical):
   cjeng = request.GET.get('cjeng')
   yonh = request.GET.get('yonh')
   qim_jang = request.GET.get('qim_jang')
@@ -64,7 +64,7 @@ def sieux_yonh_pieux(request):
     'yonh_pieux': yonh_pieux,
   })
 
-def dzih(request, ziox):
+def dzih(request, ziox, vertical):
   try:
     dzih = Dzih.objects.get(ziox=ziox)
   except:
@@ -74,7 +74,7 @@ def dzih(request, ziox):
     'dzih': dzih,
   })
 
-def dzih_pieux(request):
+def dzih_pieux(request, vertical):
   dzih_pieux = Dzih.objects.all()
   paginator = Paginator(dzih_pieux, 15)
   try:
@@ -86,13 +86,13 @@ def dzih_pieux(request):
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_mux_pieux(request):
+def cjeng_mux_pieux(request, vertical):
   return render_to_response('pyonh/cjeng_mux_pieux.html', {
     'cjeng_mux_pieux': CjengLyih.objects.all(),
   })
 
 @cache_page(60 * 60 * 24)
-def cjeng_mux(request, dzih):
+def cjeng_mux(request, dzih, vertical):
   try:
     cjeng = CjengMux.objects.get(dzih = dzih)
   except:
@@ -109,7 +109,7 @@ def yonh_mux_pieux(request):
   })
 
 @cache_page(60 * 60 * 24)
-def yonh_mux(request, mjeng):
+def yonh_mux(request, mjeng, vertical):
   try:
     yonh = YonhMux.objects.get(mjeng = mjeng)
   except:
@@ -119,7 +119,7 @@ def yonh_mux(request, mjeng):
     'yonh': yonh,
   })
 
-def cio(request, kyenh, jep):
+def cio(request, kyenh, jep, vertical):
   cio = Cio.objects.get(
     kyenh = kyenh,
     jep = jep,
