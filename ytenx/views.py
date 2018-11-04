@@ -9,22 +9,22 @@ from pyonh.models import Dzih as PyonhDzih
 from trngyan.models import Dzih as TrngyanDzih
 from dciangxkox.models import Dzih as DciangxKoxDzih
 
-def index_page(request, vertical):
+def index_page(request, vertical=0):
   return render_to_response('index.html', {
     'vertical': vertical,
   })
 
-def about_page(request, vertical):
+def about_page(request, vertical=0):
   return render_to_response('about.html', {
     'vertical': vertical,
   })
 
-def kiemx_sriek(request, vertical):
+def kiemx_sriek(request, vertical=0):
   return render_to_response('kiemx_sriek.html', {
     'vertical': vertical,
   })
 
-def zim(request, vertical):
+def zim(request, vertical=0):
   chom_sryoh = {
     'dzih_pieux': request.GET.get('dzih', ''),
     'zim_kyonh': request.GET.get('kyonh'),
