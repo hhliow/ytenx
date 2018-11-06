@@ -126,3 +126,7 @@ def beautify_mandarin_ipa(text):
   result = sub(u'(.)ɦ', ur'\1ʱ', result)
   result = sub(u'([sfʃʂ])[zvʒʐ]', ur'\1ʱ', result) 
   return result
+
+@register.filter
+def mandarin_audio_path(ziox):
+  return '/static/audio/tcenghyonhtsen/' + str(ziox) + '.m4a'
