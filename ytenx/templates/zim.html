@@ -35,18 +35,20 @@
       <p>
         <table>
           <tr>
-            <td>
-              <h2>            
+            <h2>                        
+              <td align="top">
                 <span class="badge badge-info" style="writing-mode:horizontal-tb">{{forloop.counter}}</span>
+              </td>
+              <td align="top">
                 <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
-              </h2>              
-            </td>
-            <td>
+              </td>
+            </h2>              
+            <td align="top">
               <p style="writing-mode:horizontal-tb">
                 {{dzih.sieuxYonh.preng.baxter}}
               </p>
             </td>
-            <td>
+            <td align="top">
               <p>
                 {% if dzih.sieuxYonh.pyanx %}
                   <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
@@ -60,7 +62,7 @@
               {{dzih.ngieh}}
             </td>
           </tr>
-          <tr><td></td></tr>
+          <tr><td><p></p></td></tr>
         </table>
       </p>
       <p></p>
