@@ -33,18 +33,16 @@
     <h1>廣韻</h1>
     {% for dzih in dzih_list.kyonh %}
       <h2>
-        <span class="badge badge-info">{{forloop.counter}}</span>
+        <span class="badge badge-info" style="writing-mode:horizontal-lr">{{forloop.counter}}</span>
         <table>
           <tr>
             <td>
               <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
             </td>
-          </tr>
-          <tr>
             <td>
-              <span style="writing-mode:horizontal-lr">
+              <p style="writing-mode:horizontal-lr">
                 {{dzih.sieuxYonh.preng.baxter}}
-              </span>
+              </p>
             </td>
           </tr>
         </table>
