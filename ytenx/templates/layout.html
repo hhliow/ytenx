@@ -19,48 +19,8 @@
       .badge-info {
         writing-mode: horizontal-tb;
       }
-      {% if request.session.layout == 'vertical' %}        
-        blockquote {
-          border-left: 0px;
-          border-top: 0px;
-        }
-        blockquote::before {
-          content: '';
-          margin-right: 0em;
-        }
-        .sidebar-nav {
-          direction: rtl;
-          unicode-bidi: bidi-override;
-        }
-        .sidebar-nav ul li a {
-          direction: rtl;
-          unicode-bidi: bidi-override;
-        }
-        .horizontal-cn-nav ul li {
-          float: right;
-        }      
-        .horizontal-cn-nav ul li a {
-          direction: rtl;
-          unicode-bidi: bidi-override;
-        }
-        .horizontal-cn {
-          direction: rtl;
-          unicode-bidi: bidi-override;
-        }
-        .span10 {
-          writing-mode:vertical-rl;
-          text-orientation:mixed;
-          width:100%;
-          height:100%;
-          overflow:auto;
-        }
-        .span12 {
-          writing-mode:vertical-rl;
-          text-orientation:mixed;
-          width:100%;
-          height:100%;
-          overflow:auto;
-        }
+      {% if request.session.layout == 'vertical' %}
+        {% include vertical_style.html %}
       {% endif %}
     </style>
     <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
