@@ -19,11 +19,10 @@
       .badge-info {
         writing-mode: horizontal-tb;
       }
-      blockquote {
-        border-left: 0px solid #ccc;
-        padding: 0.5em 10px;
-      }
       {% if request.session.layout == 'vertical' %}        
+        blockquote {
+          border-left: 0px solid #ccc;
+        }      
         .sidebar-nav {
           direction: rtl;
           unicode-bidi: bidi-override;
