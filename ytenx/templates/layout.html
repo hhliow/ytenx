@@ -23,7 +23,10 @@
         blockquote {
           border-left: 0px;
           border-top: 5px solid transparent;
-        }      
+        }
+        blockquote::before {
+          content: '　';
+        }
         .sidebar-nav {
           direction: rtl;
           unicode-bidi: bidi-override;
