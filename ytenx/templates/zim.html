@@ -33,22 +33,22 @@
     <h1>廣韻</h1>
     {% for dzih in dzih_list.kyonh %}
       <p>
-        <table>
+        <table align="top">
           <tr>
             <h2>                        
-              <td align="right">
+              <td>
                 <span class="badge badge-info" style="writing-mode:horizontal-tb">{{forloop.counter}}</span>
               </td>
-              <td align="right">
+              <td>
                 <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
               </td>
             </h2>              
-            <td align="right">
+            <td>
               <p style="writing-mode:horizontal-tb">
                 {{dzih.sieuxYonh.preng.baxter}}
               </p>
             </td>
-            <td align="right">
+            <td>
               <p>
                 {% if dzih.sieuxYonh.pyanx %}
                   <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
@@ -57,9 +57,10 @@
               </p>
               <p>
                 {{dzih.sieuxYonh.yonh.gheh.cjep}}{{dzih.sieuxYonh.yonh.ho|ho}}{{dzih.sieuxYonh.yonh.tongx|sryoh}}{{dzih.sieuxYonh.yonhMiuk.deuh|deuh}}<a href="{% url 'kyonh.views.yonh_miuk_page' dzih.sieuxYonh.yonhMiuk.dzih %}">{{dzih.sieuxYonh.yonhMiuk}}</a><a href="{% url 'kyonh.views.cjeng_mux_page' dzih.sieuxYonh.cjeng.dzih %}">{{dzih.sieuxYonh.cjeng}}</a>
-                ({{dzih.sieuxYonh.preng.baxter}})
               </p>
-              {{dzih.ngieh}}
+              <p>
+                {{dzih.ngieh}}
+              </p>
             </td>
           </tr>
         </table>
