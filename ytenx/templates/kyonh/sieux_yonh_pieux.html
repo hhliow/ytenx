@@ -18,6 +18,7 @@
   width: 4em;
 }
 </style>
+<div style="writing-mode:horiztontal-tb">
 <div class="page-header">
   <h1>小韻表 <small>廣韻</small></h1>
 </div>
@@ -96,7 +97,7 @@
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span8"  style="writing-mode:vertical-rl">
       <table class="table table-bordered table-condensed">
     	<tr>
     	  <th>次序</th>
@@ -143,7 +144,10 @@
     	</tr>
     	{% endfor %}
     </table>
+  </div>
+  <div class="span8">
     {% include "pagination.html" with list=sieux_yonh_pieux only %}
   </div>
+</div>
 </div>
 {% endblock %}
