@@ -63,11 +63,7 @@
         {{dzih.sieuxYonh.yonh.gheh.cjep}}{{dzih.sieuxYonh.yonh.ho|ho}}{{dzih.sieuxYonh.yonh.tongx|sryoh}}{{dzih.sieuxYonh.yonhMiuk.deuh|deuh}}<a href="{% url 'kyonh.views.yonh_miuk_page' dzih.sieuxYonh.yonhMiuk.dzih %}">{{dzih.sieuxYonh.yonhMiuk}}</a><a href="{% url 'kyonh.views.cjeng_mux_page' dzih.sieuxYonh.cjeng.dzih %}">{{dzih.sieuxYonh.cjeng}}</a>
         {% if request.session.layout != 'vertical' %}({{dzih.sieuxYonh.preng.baxter}}){% endif %}
       </p>
-      {% if request.session.layout == 'vertical' %}
-        <p>{{dzih.ngieh}}</p><br>
-      {% else %}
-        <blockquote>{{dzih.ngieh}}</blockquote>
-      {% endif %}
+      <blockquote>{{dzih.ngieh}}</blockquote>
     {% endfor %}
   {% endif %}
   {% if dzih_list.trngyan %}
