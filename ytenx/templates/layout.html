@@ -108,11 +108,11 @@
               </li>
               {% if request.session.layout == 'vertical' %}
                 <li style="float:right;">
-                  <a href="{% url 'views.index_page' %}?layout=horizontal&path={{request.get_full_path}}">橫版</a>
+                  <a href="{% url 'views.index_page' %}?layout=horizontal&path=\"{{request.get_full_path}}\"">橫版</a>
                 </li>
               {% else %}
                 <li>
-                  <a href="{% url 'views.index_page' %}?layout=vertical&path={{request.get_full_path}}">縱版</a>
+                  <a href="{% url 'views.index_page' %}?layout=vertical&path=\"{{request.get_full_path}}\"">縱版</a>
                 </li>
               {% endif %}
             </ul>                
