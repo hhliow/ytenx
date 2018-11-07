@@ -144,7 +144,7 @@
         <span class="badge badge-info">{{forloop.counter}}</span>
         <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.dzih}}</a>
         {% if request.session.layout == 'vertical' %}        
-          <span style="writing-mode:horizontal-tb;font-size:0.5em">{{dzih.sieux.ipa}}</span>
+          <span style="writing-mode:horizontal-tb;font-size:0.75em">{{dzih.sieux.ipa}}</span>
         {% endif %}
       </h2>
       {% if request.session.layout != 'vertical' %}        
