@@ -64,9 +64,7 @@
         {% if request.session.layout != 'vertical' %}({{dzih.sieuxYonh.preng.baxter}}){% endif %}
       </p>
       <blockquote>{{dzih.ngieh}}</blockquote
-      {% if request.session.layout == 'vertical' %}
-        <hr size="6">
-      {% endif %}
+      <hr size="6">
     {% endfor %}
   {% endif %}
   {% if dzih_list.trngyan %}
