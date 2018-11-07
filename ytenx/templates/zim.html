@@ -84,6 +84,10 @@
         <a href="{% url 'trngyan.views.sieux_yonh' dzih.sieux_yonh.ziox %}">{{dzih.sieux_yonh}}</a>小韻
       </p>
       <blockquote>{{dzih.tryoh}}</blockquote>
+      {% if request.session.layout == 'vertical' %}
+        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <br>
+      {% endif %}
     {% endfor %}
   {% endif %}
   {% if dzih_list.tcyts or dzih_list.tcytsjdz %}
@@ -128,6 +132,10 @@
       {% if dzih.ngieh != '' %}
         <blockquote>【正韻】{{dzih.ngieh}}</blockquote>
       {% endif %}
+      {% if request.session.layout == 'vertical' %}
+        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <br>
+      {% endif %}
     {% endfor %}
   {% endif %}
   {% if dzih_list.tcytsjdz %}
@@ -137,7 +145,7 @@
         <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.dzih}}</a>
       </h2>
       <h3>
-        {{dzih.sieux.ipa}}
+        {{ style="writing-mode:horizontal-tb" dzih.sieux.ipa}}
       </h3>
       <p>
         {{dzih.sieux.pyanx.dciangx}}{{dzih.sieux.pyanx.ghrax}}切
@@ -170,6 +178,10 @@
         <a href="{% url 'pyonh.views.sieux_yonh' dzih.sieux_yonh.ziox %}">{{dzih.sieux_yonh}}</a>小韻
       </p>
       <blockquote>{{dzih.ngieh}}</blockquote>
+      {% if request.session.layout == 'vertical' %}
+        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <br>
+      {% endif %}
     {% endfor %}
   {% endif %}
   {% if dzih_list.dciangx %}
@@ -203,6 +215,10 @@
       <p>擬音 {{dzih.ngix_1}}</p>
       <blockquote>{{dzih.tryoh}}</blockquote>
     {% endfor %}
+    {% if request.session.layout == 'vertical' %}
+      <div style="width: 5px; background-color: #EAEFF5"></div>
+      <br>
+    {% endif %}
   {% endif %}
 </div>
 {% endblock %}
