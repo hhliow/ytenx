@@ -15,7 +15,7 @@ def index_page(request):
   if 'layout' in request.GET: 
     request.session['layout'] = request.GET['layout'];
   if ('path' in request.GET):
-    return redirect(unquote(request.GET['path']))
+    return redirect((request.GET['path']))
   return render(request, 'index.html')
 
 def about_page(request):
