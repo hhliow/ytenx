@@ -14,7 +14,7 @@ def index_page(request):
   if 'layout' in request.GET or 'layout' not in request.session: 
     request.session['layout'] = request.GET.get('layout', 'horizontal');
     if (request.path):
-      return redirect(path)
+      return redirect(request.path)
     return redirect('ytenx.views.index_page')
     return render(request, 'index.html')
 
