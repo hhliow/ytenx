@@ -40,17 +40,17 @@
                 <span class="badge badge-info" style="writing-mode:horizontal-tb">{{forloop.counter}}</span>
               </h2>
             </td>
-            <td style="vertical-align:bottom;border-left:1pt solid black;">
+            <td style="vertical-align:bottom;">
               <h2>
                 <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
               </h2>
             </td>            
-            <td style="vertical-align:bottom;border-left:1pt solid black;">
+            <td style="vertical-align:bottom;">
               <p style="writing-mode:horizontal-tb">
                 {{dzih.sieuxYonh.preng.baxter}}
               </p>
             </td>
-            <td style="vertical-align:bottom;border-left:1pt solid black;">
+            <td style="vertical-align:bottom;">
               <p>
                 {% if dzih.sieuxYonh.pyanx %}
                   <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
