@@ -34,7 +34,20 @@
     {% for dzih in dzih_list.kyonh %}
       <h2>
         <span class="badge badge-info">{{forloop.counter}}</span>
-        <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
+        <table>
+          <tr>
+            <td>
+              <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="writing-mode:horizontal-lr">
+                {{dzih.sieuxYonh.preng.baxter}}
+              </span>
+            </td>
+          </tr>
+        </table>
       </h2>
       <h3>
         {% if dzih.sieuxYonh.pyanx %}
