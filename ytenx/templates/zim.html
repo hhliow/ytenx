@@ -167,6 +167,10 @@
       {% if dzih.ngieh != '' %}
         <blockquote>【正韻】{{dzih.ngieh}}</blockquote>
       {% endif %}
+      {% if request.session.layout == 'vertical' %}
+        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <br>
+      {% endif %}
     {% endfor %}
   {% endif %}
   {% if dzih_list.pyonh %}
