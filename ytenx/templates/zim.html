@@ -110,8 +110,8 @@
             </td>
           {% endif %}
         </table>
-        {% if request.session.layout == 'vertical' %}
-          <h3 style="writing-mode:horizontal-tb">
+        {% if request.session.layout != 'vertical' %}
+          <h3>
             {{dzih.sieux.ipa}}
           </h3>
         {% endif %}
