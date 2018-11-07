@@ -11,10 +11,10 @@ from trngyan.models import Dzih as TrngyanDzih
 from dciangxkox.models import Dzih as DciangxKoxDzih
 
 def index_page(request):  
-  if 'layout' in request.GET or 'layout' not in request.session: 
-    request.session['layout'] = request.GET.get('layout', 'horizontal');
-    if ('path' in request.GET):
-      return redirect(request.GET['path'])
+  if 'layout' in request.GET: 
+    request.session['layout'] = request.GET['layout'];
+  if ('path' in request.GET):
+    return redirect(request.GET['path'])
     return redirect('ytenx.views.index_page')
   return render(request, 'index.html')
 
