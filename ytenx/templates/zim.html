@@ -65,9 +65,9 @@
       </p>
       {% if request.session.layout == 'vertical' %}
         <p>{{dzih.ngieh}}</p><br>
-      <% else %>
+      {% else %}
         <blockquote>{{dzih.ngieh}}</blockquote>
-      <% endif %?
+      {% endif %}
     {% endfor %}
   {% endif %}
   {% if dzih_list.trngyan %}
