@@ -37,7 +37,7 @@
           <tr>
             <td style="vertical-align:bottom">
               <h2>
-                <span class="badge badge-info" style="writing-mode:horizontal-tb">{{forloop.counter}}</span>
+                <span class="badge badge-info">{{forloop.counter}}</span>
               </h2>
             </td>
             <td style="vertical-align:bottom;">
@@ -46,7 +46,7 @@
               </h2>
             </td>
             {% if request.session.layout == 'vertical' %}
-              <td style="vertical-align:bottom;">
+              <td>
                 <p style="writing-mode:horizontal-tb">{{dzih.sieuxYonh.preng.baxter}}</p>
               </td>
             {% endif %}
