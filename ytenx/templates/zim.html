@@ -44,30 +44,30 @@
               <h2>
                 <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
               </h2>
-            </td>            
-            <td style="vertical-align:bottom;">
-              <p style="writing-mode:horizontal-tb">
-                {{dzih.sieuxYonh.preng.baxter}}
-              </p>
             </td>
-            <td style="vertical-align:bottom;">
-              <p>
-                {% if dzih.sieuxYonh.pyanx %}
-                  <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
-                {% endif %}
-                <a href="{% url 'kyonh.views.sieux_yonh_page' dzih.sieuxYonh.ziox %}">{{dzih.sieuxYonh}}</a>小韻
-              </p>
-              <p>
-                {{dzih.sieuxYonh.yonh.gheh.cjep}}{{dzih.sieuxYonh.yonh.ho|ho}}{{dzih.sieuxYonh.yonh.tongx|sryoh}}{{dzih.sieuxYonh.yonhMiuk.deuh|deuh}}<a href="{% url 'kyonh.views.yonh_miuk_page' dzih.sieuxYonh.yonhMiuk.dzih %}">{{dzih.sieuxYonh.yonhMiuk}}</a><a href="{% url 'kyonh.views.cjeng_mux_page' dzih.sieuxYonh.cjeng.dzih %}">{{dzih.sieuxYonh.cjeng}}</a>
-              </p>
-            </td>
+            {% if request.session.layout == 'vertical' %}
+              <td style="vertical-align:bottom;">
+                <p style="writing-mode:horizontal-tb">{{dzih.sieuxYonh.preng.baxter}}</p>
+              </td>
+            {% endif %}
           </tr>
         </table>
       </p>
+      <h3>
+        {% if dzih.sieuxYonh.pyanx %}
+          <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
+        {% endif %}
+        <a href="{% url 'kyonh.views.sieux_yonh_page' dzih.sieuxYonh.ziox %}">{{dzih.sieuxYonh}}</a>小韻
+      </h3>
       <p>
-        {{dzih.ngieh}}
+        {{dzih.sieuxYonh.yonh.gheh.cjep}}{{dzih.sieuxYonh.yonh.ho|ho}}{{dzih.sieuxYonh.yonh.tongx|sryoh}}{{dzih.sieuxYonh.yonhMiuk.deuh|deuh}}<a href="{% url 'kyonh.views.yonh_miuk_page' dzih.sieuxYonh.yonhMiuk.dzih %}">{{dzih.sieuxYonh.yonhMiuk}}</a><a href="{% url 'kyonh.views.cjeng_mux_page' dzih.sieuxYonh.cjeng.dzih %}">{{dzih.sieuxYonh.cjeng}}</a>
+        {% if request.session.layout != 'vertical' %}({{dzih.sieuxYonh.preng.baxter}}){% endif %}
       </p>
-      <br>
+      {% if request.session.layout == 'vertical' %}
+        <p>{{dzih.ngieh}}</p><br>
+      <% else %>
+        <blockquote>{{dzih.ngieh}}</blockquote>
+      <% endif %?
     {% endfor %}
   {% endif %}
   {% if dzih_list.trngyan %}
@@ -102,14 +102,19 @@
               <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.dzih}}</a>
             </h2>
           </td>
-          <td>
-            <h3>
-              <p style="writing-mode:horizontal-tb">
+          {% if request.session.layout == 'vertical' %}
+            <td>
+              <h3 style="writing-mode:horizontal-tb">
                 {{dzih.sieux.ipa}}
-              </p>
-            </h3>
-          </td>
+              </h3>
+            </td>
+          {% endif %}
         </table>
+        {% if request.session.layout == 'vertical' %}
+          <h3 style="writing-mode:horizontal-tb">
+            {{dzih.sieux.ipa}}
+          </h3>
+        {% endif %}
         {{dzih.sieux.pyanx.dciangx}}{{dzih.sieux.pyanx.ghrax}}切
         {{dzih.sieux.deuh|deuh}}聲<a href="{% url 'tcenghyonhtsen.views.yonh_miuk_page' dzih.sieux.yonhMiuk.dzih %}">{{dzih.sieux.yonhMiuk}}</a>
         <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.sieux}}</a>小韻
