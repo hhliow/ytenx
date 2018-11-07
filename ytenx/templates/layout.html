@@ -22,10 +22,12 @@
       {% if request.session.layout == 'vertical' %}        
         blockquote {
           border-left: 0px;
+          border-top: 0px;
         }
         blockquote::before {
           content: '　';
           margin-right: 0em;
+          vertical-align: 0em;
         }
         .sidebar-nav {
           direction: rtl;
