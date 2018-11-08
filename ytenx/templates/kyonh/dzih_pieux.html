@@ -7,29 +7,28 @@
 <div class="page-header">
   <h1>字表 <small>廣韻</small></h1>
 </div>
-<div style="writing-mode:horizontal-tb;">
-  <div class="row">
-    <div class="span10" style="height:auto">
-      <form class="horizontal-cn form-search" method="get" action="{% url 'views.zim' %}">
-        <input type="text" name="dzih" class="search-query span3">
-        <input type="hidden" name="kyonh" value="1">
-        <input type="hidden" name="jtkb" value="1">
-        <input type="hidden" name="jtdt" value="1">
-        <button type="submit" class="horizontal-cn btn">檢索</button>
-      </form>
-    </div>
+<div class="row">
+  <div class="span10">
+    <form class="horizontal-cn form-search" method="get" action="{% url 'views.zim' %}">
+      <input type="text" name="dzih" class="search-query span3">
+      <input type="hidden" name="kyonh" value="1">
+      <input type="hidden" name="jtkb" value="1">
+      <input type="hidden" name="jtdt" value="1">
+      <button type="submit" class="horizontal-cn btn">檢索</button>
+    </form>
   </div>
-  <div class="row">
-    <div class="span10">      
-      <table class="table table-bordered table-condensed">
-        <tr>
-          <th width="32">次序</th>
-          <th width="32">字</th>
-          <th width="32">反切</th>
-          <th width="32">小韻</th>
-          <th>字義</th>
-        </tr>
-        {% for dzih in dzih_pieux %}
+</div>
+<div class="row">
+  <div class="auto-direction span10">      
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <th width="32">次序</th>
+        <th width="32">字</th>
+        <th width="32">反切</th>
+        <th width="32">小韻</th>
+        <th>字義</th>
+      </tr>
+      {% for dzih in dzih_pieux %}
         <tr>
           <td>{{dzih.ziox}}</td>
           <td><a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih}}</a></td>
@@ -45,12 +44,11 @@
           </td>
           <td>{{dzih.ngieh}}</td>
         </tr>
-        {% endfor %}
-      </table>
-    </div>
-    <div class="span10">
-      {% include "pagination.html" with list=dzih_pieux only %}
-    </div>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="span10">
+    {% include "pagination.html" with list=dzih_pieux only %}
   </div>
 </div>
 
