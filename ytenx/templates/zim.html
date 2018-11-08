@@ -36,7 +36,7 @@
         <span class="badge badge-info">{{forloop.counter}}</span>
         <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
         {% if request.session.layout == 'vertical' %}
-          <span style="latin-below">{{dzih.sieuxYonh.preng.baxter}}</span>
+          <span class="latin-below">{{dzih.sieuxYonh.preng.baxter}}</span>
         {% endif %}
       </h2>
       <h3>
@@ -71,7 +71,7 @@
       </p>
       <blockquote>{{dzih.tryoh}}</blockquote>
       {% if request.session.layout == 'vertical' %}
-        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <div style="vertical_divider"></div>
         <br>
       {% endif %}
     {% endfor %}
@@ -85,7 +85,7 @@
         <span class="badge badge-info">{{forloop.counter}}</span>
         <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.dzih}}</a>
         {% if request.session.layout == 'vertical' %}
-          <span style="latin-below">{{dzih.sieux.ipa}}</span>
+          <span class="latin-below">{{dzih.sieux.ipa}}</span>
         {% endif %}
       </h2>
       {% if request.session.layout != 'vertical' %}
@@ -108,7 +108,7 @@
         <blockquote>【正韻】{{dzih.ngieh}}</blockquote>
       {% endif %}
       {% if request.session.layout == 'vertical' %}
-        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <div style="vertical_divider"></div>
         <br>
       {% endif %}
     {% endfor %}
@@ -143,7 +143,7 @@
         <blockquote>【正韻】{{dzih.ngieh}}</blockquote>
       {% endif %}
       {% if request.session.layout == 'vertical' %}
-        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <div style="vertical_divider"></div>
         <br>
       {% endif %}
     {% endfor %}
@@ -199,7 +199,7 @@
       <p>擬音 {{dzih.ngix_1}}</p>
       <blockquote>{{dzih.tryoh}}</blockquote>
       {% if request.session.layout == 'vertical' %}
-        <div style="width: 5px; background-color: #EAEFF5"></div>
+        <div style="vertical_divider"></div>
         <br>
       {% endif %}
     {% endfor %}
