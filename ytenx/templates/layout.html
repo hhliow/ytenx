@@ -44,9 +44,9 @@
           {% else %}
             <a id="brand" class="brand" href="{% url 'views.index_page' %}"><img src="/static/img/brand.gif" title="韻典網" width="100" height="40"></a>
           {% endif %}
-          <div class=" horizontal-cn nav-collapse">
-            <ul class=" horizontal-cn nav">
-              <li class=" horizontal-cn {% block index_active %}{% endblock %}">
+          <div class="nav-collapse horizontal-cn">
+            <ul class="nav horizontal-cn">
+              <li class="{% block index_active %}{% endblock %} horizontal-cn">
                 <a href="{% url 'views.index_page' %}">首頁</a>
               </li>
               <li class="{% block kyonh_active %}{% endblock %}">
