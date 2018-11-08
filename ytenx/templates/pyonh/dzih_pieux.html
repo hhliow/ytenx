@@ -7,7 +7,7 @@
 <div class="page-header">
   <h1>字表 <small>分韻撮要</small></h1>
 </div>
-<div class="row" style="display:inline-block">
+<div class="row" style="display:inline">
   <div class="horizontal-cn span10">
     <form class="form-search" method="get" action="{% url 'views.zim' %}">
       <input type="text" name="dzih" class="search-query span3">
@@ -18,7 +18,7 @@
     </form>
   </div>
 </div>
-<div class="row" style="display:inline-block">
+<div class="row" style="display:inline">
   <div class="span7">      
       <table class="table table-bordered table-condensed">
     	<tr>
@@ -38,7 +38,7 @@
     	</tr>
     	{% endfor %}
     </table>
-    <div style="display:inline-block">
+    <div style="display:inline">
       {% include "pagination.html" with list=dzih_pieux only %}
     </div>
   </div>
