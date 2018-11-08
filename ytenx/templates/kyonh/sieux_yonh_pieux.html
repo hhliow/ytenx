@@ -28,17 +28,17 @@
     <ul>
       <li>
         <label class="control-label" for="cjeng">聲</label>
-        <select name="cjeng" id="cjeng">
+        <select name="cjeng" id="cjeng" class="horizontal-cn">
           <option></option>
           {% for cjeng in cjeng_pieux %}
             {% if cjeng.dzih %}
               {% if cjeng.dzih == p_cjeng %}
-                <option selected="selected">{{cjeng}}</option>
+                <option selected="selected" class="horizontal-cn">{{cjeng}}</option>
               {% else %}
-                <option>{{cjeng}}</option>
+                <option class="horizontal-cn">{{cjeng}}</option>
               {% endif %}
             {% else %}
-              <option disabled="disabled">{{cjeng}}</option>
+              <option disabled="disabled" class="horizontal-cn">{{cjeng}}</option>
             {% endif %}
           {% endfor %}
         </select>
