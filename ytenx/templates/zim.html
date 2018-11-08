@@ -36,7 +36,7 @@
         <span class="badge badge-info">{{forloop.counter}}</span>
         <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
         {% if request.session.layout == 'vertical' %}
-          <small style="writing-mode:horizontal-tb">{{dzih.sieuxYonh.preng.baxter}}</small>
+          <span style="latin-below">{{dzih.sieuxYonh.preng.baxter}}</span>
         {% endif %}
       </h2>
       <h3>
@@ -81,30 +81,19 @@
   {% endif %}
   {% if dzih_list.tcyts %}
     {% for dzih in dzih_list.tcyts %}
-      <table>
-        <tr>
-          <td style="vertical-align:bottom">
-            <h2>
-              <span class="badge badge-info">{{forloop.counter}}</span>
-            </h2>
-          <td>
-            <h2>
-              <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.dzih}}</a>
-            </h2>
-          </td>
-          {% if request.session.layout == 'vertical' %}
-            <td>
-              <h3 style="writing-mode:horizontal-tb">
-                {{dzih.sieux.ipa}}
-              </h3>
-            </td>
-          {% endif %}
-        </table>
-        {% if request.session.layout != 'vertical' %}
-          <h3>
-            {{dzih.sieux.ipa}}
-          </h3>
+      <h2>
+        <span class="badge badge-info">{{forloop.counter}}</span>
+        <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.dzih}}</a>
+        {% if request.session.layout == 'vertical' %}
+          <span style="latin-below">{{dzih.sieux.ipa}}</span>
         {% endif %}
+      </h2>
+      {% if request.session.layout != 'vertical' %}
+        <h3>
+          {{dzih.sieux.ipa}}
+        </h3>
+      {% endif %}
+      <p>
         {{dzih.sieux.pyanx.dciangx}}{{dzih.sieux.pyanx.ghrax}}切
         {{dzih.sieux.deuh|deuh}}聲<a href="{% url 'tcenghyonhtsen.views.yonh_miuk_page' dzih.sieux.yonhMiuk.dzih %}">{{dzih.sieux.yonhMiuk}}</a>
         <a href="{% url 'tcenghyonhtsen.views.sieux_yonh_page' dzih.sieux.ziox %}">{{dzih.sieux}}</a>小韻
