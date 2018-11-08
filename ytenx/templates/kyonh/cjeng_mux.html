@@ -21,7 +21,7 @@
     {% endfor %}
     </table>
   </div>
-  <div class="span3">
+  <div class="span3" style="width:auto;">
     <h2>拼音</h2>
     <table class="table table-bordered">
     {% for mjeng, preng in cjeng.preng.items %}
@@ -36,7 +36,7 @@
   </div>
 </div>
 <div class="span10">
-  <div class="row">
+  <div class="row" style="width:auto;">
     <h2>小韻</h2>
     {% for sieux in cjeng.sieuxyonh_set.all %}
       <a href="{% url 'kyonh.views.sieux_yonh_page' sieux.ziox %}">{{sieux}}</a>
