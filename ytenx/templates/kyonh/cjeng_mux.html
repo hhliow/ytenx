@@ -36,11 +36,13 @@
   </div>
 </div>
 <div class="span10">
-  <div class="row" style="width:auto;">
+  <div class="row" style="width:auto;height:auto;overflow:auto">
     <h2>小韻</h2>
     {% for sieux in cjeng.sieuxyonh_set.all %}
       <a href="{% url 'kyonh.views.sieux_yonh_page' sieux.ziox %}">{{sieux}}</a>
     {% endfor %}
+  </div>
+  <div class="row" style="width:auto;height:auto;overflow:auto">
     <h2>反切上字</h2>
     {% for dciangx in cjeng.dciangxdzih_set.all %}
       <a href="{% url 'kyonh.views.pyanx_dciangx_page' dciangx.dzih %}">{{dciangx}}</a>
