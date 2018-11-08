@@ -32,27 +32,13 @@
   {% if dzih_list.kyonh %}
     <h1>廣韻</h1>
     {% for dzih in dzih_list.kyonh %}
-      <p>
-        <table>
-          <tr>
-            <td style="vertical-align:bottom">
-              <h2>
-                <span class="badge badge-info">{{forloop.counter}}</span>
-              </h2>
-            </td>
-            <td style="vertical-align:bottom;">
-              <h2>
-                <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
-              </h2>
-            </td>
-            {% if request.session.layout == 'vertical' %}
-              <td>
-                <p style="writing-mode:horizontal-tb">{{dzih.sieuxYonh.preng.baxter}}</p>
-              </td>
-            {% endif %}
-          </tr>
-        </table>
-      </p>
+      <h2>
+        <span class="badge badge-info">{{forloop.counter}}</span>
+        <a href="{% url 'kyonh.views.dzih' dzih.ziox %}">{{dzih.dzih}}</a>
+        {% if request.session.layout == 'vertical' %}
+          <small style="writing-mode:horizontal-tb">{{dzih.sieuxYonh.preng.baxter}}</small>
+        {% endif %}
+      </h2>
       <h3>
         {% if dzih.sieuxYonh.pyanx %}
           <a href="{% url 'kyonh.views.pyanx_dciangx_page' dzih.sieuxYonh.pyanx.dciangx.dzih %}">{{dzih.sieuxYonh.pyanx.dciangx}}</a><a href="{% url 'kyonh.views.pyanx_ghrax_page' dzih.sieuxYonh.pyanx.ghrax.dzih %}">{{dzih.sieuxYonh.pyanx.ghrax}}</a>切
