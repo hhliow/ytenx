@@ -7,18 +7,18 @@
 <div class="page-header">
   <h1>字表 <small>分韻撮要</small></h1>
 </div>
-<div class="row">
-  <div class="span10">
+<div class="row" style="display:inline-block">
+  <div class="horizontal-cn span10">
     <form class="form-search" method="get" action="{% url 'views.zim' %}">
       <input type="text" name="dzih" class="search-query span3">
       <input type="hidden" name="pyonh" value="1">
       <input type="hidden" name="jtkb" value="1">
       <input type="hidden" name="jtdt" value="1">
-      <button type="submit" class="btn">檢索</button>
+      <button type="submit" class="horizontal-cn btn">檢索</button>
     </form>
   </div>
 </div>
-<div class="row">
+<div class="row" style="display:inline-block">
   <div class="span7">      
       <table class="table table-bordered table-condensed">
     	<tr>
@@ -38,7 +38,9 @@
     	</tr>
     	{% endfor %}
     </table>
-    {% include "pagination.html" with list=dzih_pieux only %}
+    <div style="display:inline-block">
+      {% include "pagination.html" with list=dzih_pieux only %}
+    </div>
   </div>
 </div>
 
