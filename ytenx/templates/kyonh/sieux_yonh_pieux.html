@@ -33,12 +33,12 @@
           {% for cjeng in cjeng_pieux %}
             {% if cjeng.dzih %}
               {% if cjeng.dzih == p_cjeng %}
-                <option selected="selected" class="horizontal-cn">{{cjeng}}</option>
+                <option selected="selected">{{cjeng}}</option>
               {% else %}
-                <option class="horizontal-cn">{{cjeng}}</option>
+                <option>{{cjeng}}</option>
               {% endif %}
             {% else %}
-              <option disabled="disabled" class="horizontal-cn">{{cjeng}}</option>
+              <option disabled="disabled">{{cjeng}}</option>
             {% endif %}
           {% endfor %}
         </select>
@@ -89,7 +89,7 @@
         </select>
       </li>
       <li>
-        <input type="submit" class="btn" value="查詢"/>
+        <input type="submit" class="horizontal-cn btn" value="查詢"/>
       </li>
     </ul>
   </form>
