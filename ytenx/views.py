@@ -1,4 +1,5 @@
 # coding=utf-8
+from django.core.cache import cache
 from django.http import Http404
 from django.shortcuts import redirect
 from django.shortcuts import render
@@ -13,7 +14,8 @@ from urllib import unquote
 
 def index_page(request):  
   if 'layout' in request.GET: 
-    request.session['layout'] = request.GET['layout'];
+    request.session['layout'] = request.GET['layout']
+    cache.clear()
   if ('path' in request.GET):
     return redirect((request.GET['path']))
   return render(request, 'index.html')
